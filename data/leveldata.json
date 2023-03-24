@@ -1,0 +1,24 @@
+{
+    "Level1": {
+        "Player": {
+            "location": [0, 0],
+            "name": "Cuppy",
+            "rotation": 0,
+            "server": "https://growtopiagame.7m.pl/"
+        }
+    },
+    "world": {
+        "npcs": [
+            {
+                "location": [1, 2],
+                "name": "Hello World!",
+                "options": {
+                    "trades": {},
+                    "effects": {},
+                    "invunrable": false,
+                    "health": 100
+                }
+            }
+        ]
+    }
+}
