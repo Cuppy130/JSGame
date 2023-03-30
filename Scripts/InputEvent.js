@@ -17,7 +17,4 @@ class InputEvent {
         if(this.keys.indexOf(code)>-1){r=true}else{r=false};
         return r;
     }
-    map(selector=window, keyCode="", runFunction=function(){}){
-        $(selector).keydown( e => { if( this.keys.indexOf( keyCode ) ){ runFunction() } } )
-    }
 }
