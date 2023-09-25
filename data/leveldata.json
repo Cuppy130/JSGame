@@ -1,24 +1,4 @@
 {
-    "Level1": {
-        "Player": {
-            "location": [0, 0],
-            "name": "Cuppy",
-            "rotation": 0,
-            "server": "https://growtopiagame.7m.pl/"
-        }
-    },
-    "world": {
-        "npcs": [
-            {
-                "location": [1, 2],
-                "name": "Hello World!",
-                "options": {
-                    "trades": {},
-                    "effects": {},
-                    "invunrable": false,
-                    "health": 100
-                }
-            }
-        ]
-    }
+    "leveldat": [{"name":"WIP","pathTo":".\/WIP","children":[{"name":"Glitch Nerds","pathTo":".\/WIP\/Glitch Nerds","children":[{"name":"ITG2.png","pathTo":".\/WIP\/Glitch Nerds\/ITG2.png"},{"name":"audio.mp3","pathTo":".\/WIP\/Glitch Nerds\/audio.mp3"},{"name":"audio.ogg","pathTo":".\/WIP\/Glitch Nerds\/audio.ogg"},{"name":"lua","pathTo":".\/WIP\/Glitch Nerds\/lua","children":[{"name":"layout.lua","pathTo":".\/WIP\/Glitch Nerds\/lua\/layout.lua"},{"name":"layout.xml","pathTo":".\/WIP\/Glitch Nerds\/lua\/layout.xml"},{"name":"mods.lua","pathTo":".\/WIP\/Glitch Nerds\/lua\/mods.lua"},{"name":"shaders","pathTo":".\/WIP\/Glitch Nerds\/lua\/shaders","children":[{"name":"glitch2.3.frag","pathTo":".\/WIP\/Glitch Nerds\/lua\/shaders\/glitch2.3.frag"},{"name":"pixelate.frag","pathTo":".\/WIP\/Glitch Nerds\/lua\/shaders\/pixelate.frag"}]}]},{"name":"plugins","pathTo":".\/WIP\/Glitch Nerds\/plugins","children":[{"name":"limitaft.xml","pathTo":".\/WIP\/Glitch Nerds\/plugins\/limitaft.xml"}]},{"name":"steps.sm","pathTo":".\/WIP\/Glitch Nerds\/steps.sm"},{"name":"steps.sm.old","pathTo":".\/WIP\/Glitch Nerds\/steps.sm.old"},{"name":"template","pathTo":".\/WIP\/Glitch Nerds\/template","children":[{"name":"ease.lua","pathTo":".\/WIP\/Glitch Nerds\/template\/ease.lua"},{"name":"main.xml","pathTo":".\/WIP\/Glitch Nerds\/template\/main.xml"},{"name":"plugins.xml","pathTo":".\/WIP\/Glitch Nerds\/template\/plugins.xml"},{"name":"sort.lua","pathTo":".\/WIP\/Glitch Nerds\/template\/sort.lua"},{"name":"std.lua","pathTo":".\/WIP\/Glitch Nerds\/template\/std.lua"},{"name":"template.lua","pathTo":".\/WIP\/Glitch Nerds\/template\/template.lua"}]}]}]},{"name":"chart","pathTo":".\/chart","children":[{"name":"Toxic","pathTo":".\/chart\/Toxic","children":[{"name":"ITG2.png","pathTo":".\/chart\/Toxic\/ITG2.png"},{"name":"Toxic!.sm","pathTo":".\/chart\/Toxic\/Toxic!.sm"},{"name":"audio.ogg","pathTo":".\/chart\/Toxic\/audio.ogg"}]}]},{"name":"download.php","pathTo":".\/download.php"},{"name":"mod","pathTo":".\/mod","children":[{"name":"frenchcorekick","pathTo":".\/mod\/frenchcorekick","children":[{"name":"ITG2.png","pathTo":".\/mod\/frenchcorekick\/ITG2.png"},{"name":"howtomakeafrenchorekick.ogg","pathTo":".\/mod\/frenchcorekick\/howtomakeafrenchorekick.ogg"},{"name":"howtomakeafrenchorekick.sm","pathTo":".\/mod\/frenchcorekick\/howtomakeafrenchorekick.sm"},{"name":"lua","pathTo":".\/mod\/frenchcorekick\/lua","children":[{"name":"layout.lua","pathTo":".\/mod\/frenchcorekick\/lua\/layout.lua"},{"name":"layout.xml","pathTo":".\/mod\/frenchcorekick\/lua\/layout.xml"},{"name":"mods.lua","pathTo":".\/mod\/frenchcorekick\/lua\/mods.lua"},{"name":"shaders","pathTo":".\/mod\/frenchcorekick\/lua\/shaders","children":[{"name":"glitch2.3.frag","pathTo":".\/mod\/frenchcorekick\/lua\/shaders\/glitch2.3.frag"},{"name":"pixelate.frag","pathTo":".\/mod\/frenchcorekick\/lua\/shaders\/pixelate.frag"}]}]},{"name":"plugins","pathTo":".\/mod\/frenchcorekick\/plugins","children":[{"name":"limitaft.xml","pathTo":".\/mod\/frenchcorekick\/plugins\/limitaft.xml"}]},{"name":"template","pathTo":".\/mod\/frenchcorekick\/template","children":[{"name":"ease.lua","pathTo":".\/mod\/frenchcorekick\/template\/ease.lua"},{"name":"main.xml","pathTo":".\/mod\/frenchcorekick\/template\/main.xml"},{"name":"plugins.xml","pathTo":".\/mod\/frenchcorekick\/template\/plugins.xml"},{"name":"sort.lua","pathTo":".\/mod\/frenchcorekick\/template\/sort.lua"},{"name":"std.lua","pathTo":".\/mod\/frenchcorekick\/template\/std.lua"},{"name":"template.lua","pathTo":".\/mod\/frenchcorekick\/template\/template.lua"}]}]}]}],
+    "serverSongPath": "https://extinctoranges.7m.pl/Songs"
 }

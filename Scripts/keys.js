@@ -1,12 +1,12 @@
-class InputEvent {
-    constructor(selector=window){
+class InputHandler {
+    constructor(s=window){
         this.keys = [];
-        $(selector).keydown( e => {
+        $(s).keydown( e => {
             if( this.keys.indexOf( e.code ) === -1 ) {
                 this.keys.push( e.code )
             }
         });
-        $(selector).keyup( e => {
+        $(s).keyup( e => {
             if( this.keys.indexOf( e.code ) > -1 ) {
                 this.keys.splice( this.keys.indexOf( e.code ), 1)
             }
