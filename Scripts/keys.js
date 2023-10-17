@@ -1,4 +1,4 @@
-class InputHandler {
+class keyHandler {
     constructor(s=window){
         this.keys = [];
         $(s).keydown( e => {

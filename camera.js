@@ -1,3 +1,4 @@
+// written by ExtinctOranges
 class camera2D {
     constructor(ctx, renderCallback=()=>{}){
         this.pos = [0,0];
@@ -8,10 +9,7 @@ class camera2D {
     update(){
         for (let i = 0; i < this.pos.length; i++) {
             this.pos[i] = (this.pos[i] + this.following[i]) / 2;
+            this.ctx.translate(pos[0], pos[1]);
         }
-    }
-    render(){
-        this.ctx.translate(pos[0], pos[1]);
-        this.callback();
     }
 }
