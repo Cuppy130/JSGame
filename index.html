@@ -9,6 +9,17 @@
     <link rel="stylesheet" href="./style/index.css">
 </head>
 <body>
-    
+    <canvas id="gameWindow"></canvas>
+    <script>
+        $('document').ready(()=>{
+            let ratio = [640, 480]
+            $("#gameWindow").css({
+                width: `${ratio[0]}px`,
+                height: `${ratio[1]}px`
+            })
+        })
+
+        
+    </script>
 </body>
 </html>
