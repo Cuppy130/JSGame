@@ -13,8 +13,8 @@ class playerClass{
     update(){
         let keys = this.keys
         let kb = this.keybinds
-        if(keys.pressed(kb[0])){
-
+        if(keys.pressed(kb['left'])){
+            pos-=spd
         }
     }
 }
