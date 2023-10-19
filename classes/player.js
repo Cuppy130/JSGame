@@ -6,15 +6,22 @@ class playerClass{
             left: "KeyA",
             right: "KeyD",
             up: "KeyW",
-            down: "KeyS"
+            down: "KeyS",
+            jump: "Space"
         }
         //this.vel
     }
     update(){
-        let keys = this.keys
-        let kb = this.keybinds
+        let spd = 2;
+
+
+        let keys = this.keys;
+        let kb = this.keybinds;
         if(keys.pressed(kb['left'])){
-            pos-=spd
+            pos-=spd;
+        }
+        if (keys.pressed(kb['right'])){
+            pos-=spd;
         }
     }
 }
