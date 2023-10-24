@@ -1,7 +1,4 @@
-import {  } from "firebase/app";
-import {  } from "firebase/auth";
-import {  } from "firebase/database";
-import { Player } from "player"
+import { initializeApp } from 'firebase/app';
 
 function clamp (val, min, max) {return Math.min(Math.max(val, min), max)}
 

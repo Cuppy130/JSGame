@@ -12,14 +12,13 @@
     <canvas id="gameWindow"></canvas>
     <script>
         $('document').ready(()=>{
-            let ratio = [640, 480]
+            let ratio = [640*2, 480*2]
+            console.log(ratio);
             $("#gameWindow").css({
                 width: `${ratio[0]}px`,
                 height: `${ratio[1]}px`
             })
         })
-
-
     </script>
     <script type="module" src="main.js"></script>
 </body>
