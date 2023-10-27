@@ -8,3 +8,7 @@ class perframe {
         requestAnimationFrame(this.loop)
     }
 }
+
+function tileImageCTX(ctx: CanvasRenderingContext2D, callback: Function): void {
+    
+}
