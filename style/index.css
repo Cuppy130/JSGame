@@ -4,3 +4,8 @@
     box-sizing: border-box;
 }
 
+#gameWindow {
+    background-color: grey;
+    width: 40rem;
+    height: 30rem;
+}

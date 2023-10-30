@@ -3,43 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Floor is Lava</title>
+    <title>Top down</title>
     <script src="./Scripts/jquery.js"></script>
+    <script src="./Scripts/eases.js"></script>
     <script src="./Scripts/keys.js"></script>
+    <script src="player.js"></script>
     <link rel="stylesheet" href="./style/index.css">
 </head>
 <body>
     <canvas id="gameWindow"></canvas>
+    <p id="player">data</p>
     <script>
-        $('document').ready(()=>{
-            let ratio = [640, 480]
-            $("#gameWindow").css({
-                width: `${ratio[0]}px`,
-                height: `${ratio[1]}px`
-            })
+        ()=>{
             let canva = document.getElementById("gameWindow")
-            canva.width = 640/2
-            canva.height = 480/2
-            canva.getContext('2d').fillRect(0, 0, 20, 20)
-        })
-    </script>
-    <script>
-        const game = $("#gameWindow")[0]
-        const ctx = $("#gameWindow")[0].getContext("2d")
-
-        game.width = 640
-        game.height = 480
-
-        function loop() {
-            ctx.save()
-            ctx.clearRect(0,0,640/2,480/2)
-            ctx.fillRect(640/2,480/2,20,20)
-            ctx.restore();
-            requestAnimationFrame(loop)
+            canva.width = 640/2;
+            canva.height = 480/2;
         }
-
-        requestAnimationFrame(loop)
     </script>
-    <!--<script src="main.js"></script>-->
+    <script src="main.js"></script>
 </body>
 </html>
