@@ -1,5 +1,14 @@
 console.log('loading classes');
-
+function tileImage(imageSource, x, y, ax, ay, bs=30){
+    ctx.save()
+    var pat = ctx.createPattern(imageSource, "repeat");
+    wid = 2/imageSource.width;
+    hei = 2/imageSource.height;
+    pat.setTransform(new DOMMatrix([wid*bs,0,0,hei*bs,x, y]));
+    ctx.fillStyle = pat;
+    ctx.fillRect(x*(bs*2), y*(bs*2)*-1, ax * bs*2, ay * bs*2);
+    ctx.restore()
+}
 let zoom = 1.0;
 const ctx = $("#gameWindow")[0].getContext('2d')
 $("#gameWindow")[0].width = 320
@@ -8,42 +17,6 @@ const keys = new keyHandler;
 
 const clamp = (val, min, max) => {
     return Math.max(Math.min(val, max), min);
-}
-
-class playerClass {
-    constructor(){
-        this.pos=[0,0]
-        this.vel=[0, 0]
-        this.size = 2
-    } 
-    update(){
-        if(keys.pressed("KeyA")){
-            this.vel[0]--;
-        }
-        if (keys.pressed("KeyD")){
-            this.vel[0]++;
-        }
-        if(!keys.pressed("KeyD") && !keys.pressed("KeyA")){
-            this.vel[0] /= 3;
-        }
-
-        if(keys.pressed('KeyA')){
-            this.vel[1]--;
-        }
-        if(keys.pressed('KeyS')){
-            this.vel[1]++;
-        }
-        if(!keys.pressed("KeyW") && !keys.pressed("KeyS")){
-            this.vel[1] /= 3;
-        }
-    }
-    draw(){
-        ctx.save();
-        ctx.translate(this.pos[0], this.pos[1]);
-        ctx.beginPath();
-        ctx.rect(-(this.size/2)*zoom, -(this.size/2)*zoom, this.size, this.size);
-        ctx.restore();
-    }
 }
 
 class camera {

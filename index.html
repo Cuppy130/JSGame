@@ -17,8 +17,10 @@
                 width: `${ratio[0]}px`,
                 height: `${ratio[1]}px`
             })
-            $("#gameWindow")[0].width = 100
-            $("#gameWindow")[0].height = 100
+            let canva = document.getElementById("gameWindow")
+            canva.width = 640/2
+            canva.height = 480/2
+            canva.getContext('2d').fillRect(0, 0, 20, 20)
         })
     </script>
     <script>
@@ -29,7 +31,10 @@
         game.height = 480
 
         function loop() {
+            ctx.save()
+            ctx.clearRect(0,0,640/2,480/2)
             ctx.fillRect(640/2,480/2,20,20)
+            ctx.restore();
             requestAnimationFrame(loop)
         }
 
