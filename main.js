@@ -1,4 +1,3 @@
-console.log('loading classes');
 function tileImage(imageSource, x, y, ax, ay, bs=30){
     ctx.save()
     var pat = ctx.createPattern(imageSource, "repeat");
@@ -13,22 +12,3 @@ function tileImage(imageSource, x, y, ax, ay, bs=30){
 const ctx = $("#gameWindow")[0].getContext('2d')
 const keys = new keyHandler;
 
-const player = new PlayerClass
-//const playerCamera =
-
-const clamp = (val, min, max) => {
-    return Math.max(Math.min(val, max), min);
-}
-
-
-
-()=>{
-    const perframe = () => {
-        player.update(keys);
-        player.draw()
-    }
-
-    setInterval(()=>{
-        perframe()
-    }, 1000/144)
-}

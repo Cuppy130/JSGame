@@ -1,43 +1,50 @@
-class PlayerClass {
-    constructor(){
-        this.pos = [0, 0];
-        this.vel = [0, 0];
-        this.size = 2;
-        this.speed = 2
-        this.speedMax = 20
-    }
-    update(keys){
-        if(keys.pressed("KeyA") && keys.pressed("KeyD")) {
-            this.vel[0] /= decelerate;
-        } else if (keys.pressed("KeyA")){
-            this.vel[0]-=this.speed;
-        } else if (keys.pressed("KeyD")){
-            this.vel[0]+=this.speed;
-        } else {
-            this.vel[0] /= decelerate;
-        }
+const KEYS = new keyHandler;
+let position = [0, 0];
+let velocity = [0, 0];
+let speed = 1.5 + 2/3;
+let gravity = 3;
+let frameRate = 60;
+let jumppower = gravity * -2;
 
-        if(keys.pressed("KeyW") && keys.pressed("KeyS")) {
-            this.vel[0] /= decelerate;
-        } else if (keys.pressed("KeyW")){
-            this.vel[0]-=this.speed;
-        } else if (keys.pressed("KeyS")){
-            this.vel[0]+=this.speed;
-        } else {
-            this.vel[0] /= decelerate;
-        }
-        //clamp
-        this.vel[0] = clamp(this.vel[0], -this.speedMax, this.speedMax)
-        this.vel[1] = clamp(this.vel[1], -this.speedMax, this.speedMax)
+let doubleJumpEnabled = false;
+let doubleJump = false
 
-        //update
-        this.pos[0] += this.vel[0];
-        this.pos[1] += this.vel[1];
-    }
-    draw(){
-        ctx.save()
-        ctx.translate(this.pos[0, pos[1]])
-        ctx.fillRect(-10, -10, 20, 20)
-        ctx.restore()
-    }
+let isOnFloor = false
+
+function moveLeft(){
+    velocity[0] -= speed;
 }
+
+function moveRight(){
+    velocity[0] += speed;
+}
+
+function jump(){
+    velocity[1] -jumppower;
+}
+
+function update(){
+    for (let i = 0; i < 2; i++) {
+        position[i] += velocity[i];
+    }
+
+    KEYS.pressed("KeyA") ?? moveLeft();
+    KEYS.pressed("KeyD") ?? moveRight();
+    KEYS.pressed("KeyW") ?? jump();
+    KEYS.pressed("Space") ?? jump();
+
+    draw();
+}
+
+function draw() {
+    ctx.clearRect();
+    ctx.fillRect(0, 0, 20, 20);
+    
+    drawWorld()
+}
+
+function drawWorld() {
+    
+}
+
+setInterval(update, 1000/frameRate)

@@ -4,22 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test game</title>
-    <script src="./Scripts/jquery.js"></script>
-    <script src="./Scripts/eases.js"></script>
-    <script src="./Scripts/keys.js"></script>
-    <script src="player.js"></script>
     <link rel="stylesheet" href="./style/index.css">
 </head>
 <body>
-    <canvas id="gameWindow"></canvas>
-    <p id="player">data</p>
-    <script>
-        ()=>{
-            let canva = document.getElementById("gameWindow")
-            canva.width = 640/2;
-            canva.height = 480/2;
-        }
-    </script>
-    <script src="main.js"></script>
+    <main>
+        <script src="/Scripts/jquery.js"></script>
+        <script src="/Scripts/eases.js"></script>
+        <script src="/Scripts/keys.js"></script>
+        <script src="main.js"></script>
+        <script type="module" src="player.js"></script>
+    </main>
 </body>
 </html>
