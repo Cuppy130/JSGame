@@ -1,0 +1,15 @@
+{
+    
+    "compilerOptions": {
+      "module": "commonjs",
+      "noImplicitAny": true,
+      "removeComments": true,
+      "outDir": "scripts",
+      "strict": true
+    },
+    "files": [
+      "main.ts",
+      "player.ts",
+      "keyboard.ts"
+    ]
+  }
