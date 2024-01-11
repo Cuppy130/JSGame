@@ -24,6 +24,7 @@ class Player {
     doubleJumpEnabled: boolean = false;
     isOnFloor: boolean = false;
 
+    mode: string = 'run' //can either be 'run' for classic gameplay or 'platformer' for new gameplay
 
     constructor(id: number){
         this.id = id
@@ -32,8 +33,10 @@ class Player {
     draw(){
         ctx.save();
         ctx.fillStyle = "lime"
-        ctx.rotate(this.rotation);
-        ctx.translate(this.x*scale+screen_position.x*scale, this.y*scale+screen_position.y*scale);
+        ctx.translate(this.x*scale+screen_offset.x*scale*(1920*1.5/scale), this.y*scale+screen_offset.y*scale*(1080*1.5/scale));
+        if(!this.isOnFloor){
+            ctx.rotate(this.rotation*Math.PI/180);
+        }
         ctx.fillRect(0, 0, this.w*scale, this.h*scale);
         ctx.restore();
     }
@@ -55,6 +58,9 @@ class Player {
 
         if(!this.isOnFloor){
             this.yv += this.gravity * speed
+            if(this.yv>1){
+                this.yv=1
+            }
         } else {
             this.yv = 0;
             if(keys.isPressed("KeyW")){

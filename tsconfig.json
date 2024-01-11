@@ -8,6 +8,7 @@
       "strict": true
     },
     "files": [
+      "level.ts",
       "main.ts",
       "player.ts",
       "keyboard.ts"
