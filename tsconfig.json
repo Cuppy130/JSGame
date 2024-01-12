@@ -1,7 +1,7 @@
 {
     
     "compilerOptions": {
-      "module": "commonjs",
+      "module": "CommonJS",
       "noImplicitAny": true,
       "removeComments": true,
       "outDir": "scripts",
@@ -9,8 +9,8 @@
     },
     "files": [
       "level.ts",
-      "main.ts",
+      "keyboard.ts",
       "player.ts",
-      "keyboard.ts"
+      "main.ts",
     ]
   }

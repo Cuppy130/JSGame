@@ -15,8 +15,6 @@ class Player {
     oldx: number = 0;
     oldy: number = 0;
 
-    gravity: number = .03;
-    jpower: number = 0.35;
     speed: number = 0.02
 
     isJumping: boolean = false;
@@ -45,10 +43,6 @@ class Player {
         console.log("killing player.")
     }
 
-    jump(){
-        this.yv = -this.jpower
-    }
-
     update(speed = 1.0){
         this.oldx = this.x;
         this.oldy = this.y;
@@ -56,17 +50,8 @@ class Player {
         this.x += this.xv * speed;
         this.y += this.yv * speed;
 
-        if(!this.isOnFloor){
-            this.yv += this.gravity * speed
-            if(this.yv>1){
-                this.yv=1
-            }
-        } else {
-            this.yv = 0;
-            if(keys.isPressed("KeyW")){
-                this.yv = -this.jpower;
-            }
-        }
+        
         this.xv /= 1.2
+        this.yv /= 1.2
     }
 }
