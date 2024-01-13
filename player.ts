@@ -6,16 +6,40 @@ class Player {
     x: number = 0;
     y: number = 0;
 
-    w: number = 1.0;
-    h: number = 1.0;
+    w: number = 0.95;
+    h: number = 0.95;
 
     xv: number = 0;
     yv: number = 0;
 
-    oldx: number = 0;
-    oldy: number = 0;
+    l = this.x;
+    ol = this.l;
+    r = this.x+this.w;
+    or = this.r;
+    t = this.y;
+    ot = this.t
+    b = this.y + this.h;
+    ob = this.b
 
-    speed: number = 0.02
+    setTop(v : number) {
+        this.y = this.y;
+        this.y = v
+    }
+    setBottom(v : number) {
+        this.y = this.y;
+        this.y = v - this.h
+    }
+    setLeft(v : number) {
+        this.x = this.x;
+        this.x = v
+    }
+    setRight(v : number) {
+        this.x = this.x;
+        this.x = v - this.w
+    }
+
+    jpower: number = -.75;
+    gravity: number = .05;
 
     isJumping: boolean = false;
     doubleJump: boolean = false;
@@ -31,7 +55,7 @@ class Player {
     draw(){
         ctx.save();
         ctx.fillStyle = "lime"
-        ctx.translate(this.x*scale+screen_offset.x*scale*(1920*1.5/scale), this.y*scale+screen_offset.y*scale*(1080*1.5/scale));
+        ctx.translate(this.x*scale+screen_offset.x*scale*(1920/2/scale), this.y*scale+screen_offset.y*scale*(1080*1.5/scale));
         if(!this.isOnFloor){
             ctx.rotate(this.rotation*Math.PI/180);
         }
@@ -44,14 +68,21 @@ class Player {
     }
 
     update(speed = 1.0){
-        this.oldx = this.x;
-        this.oldy = this.y;
+        this.ot = this.y;
+        this.ob = this.y + this.h
+        this.ol = this.x;
+        this.or = this.x + this.w;
 
         this.x += this.xv * speed;
         this.y += this.yv * speed;
 
+        this.t = this.y;
+        this.b = this.y + this.h;
+        this.l = this.x;
+        this.r = this.x + this.w;
         
         this.xv /= 1.2
         this.yv /= 1.2
+
     }
 }

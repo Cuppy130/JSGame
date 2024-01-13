@@ -8,9 +8,10 @@
       "strict": true
     },
     "files": [
+      "rectangle.ts",
       "level.ts",
       "keyboard.ts",
       "player.ts",
-      "main.ts",
+      "main.ts"
     ]
   }
