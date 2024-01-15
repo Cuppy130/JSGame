@@ -1,6 +1,8 @@
 class Player {
     id: number;
 
+    spawned : Boolean = false;
+
     rotation: number = 0
 
     x: number = 0;
@@ -38,7 +40,7 @@ class Player {
         this.x = v - this.w
     }
 
-    jpower: number = -.75;
+    jpower: number = -.5;
     gravity: number = .05;
 
     isJumping: boolean = false;
@@ -80,9 +82,8 @@ class Player {
         this.b = this.y + this.h;
         this.l = this.x;
         this.r = this.x + this.w;
-        
+
         this.xv /= 1.2
-        this.yv /= 1.2
 
     }
 }

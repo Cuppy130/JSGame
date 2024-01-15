@@ -14,15 +14,10 @@ function parseWorld(a:number, b:string){
 }
 
 function loadWorld(id=0){
-    $.get("/levels/"+id+".txt", data => {
+    $.get("/levels/"+id+".json", data => {
         world = []
-        data.split(";").forEach((item : any)=>{
-            let object : any = {}
-            for(let i=0; i<item.split(",").length; i+=2){
-                object = new Object($.extend(object, parseWorld(parseInt(item.split(",")[i]), item.split(",")[i+1])))
-            }
-            world.push(object)
+        data.forEach((item:any) => {
+            world.push($.extend({id: 1, x: 0, y:0, xv: 0, yv: 0}, item))
         })
-        world.push({id: 0, x: -5000, w: 10000, y: 16, h: 999, xv: 0, yv: 0})
     })
 }

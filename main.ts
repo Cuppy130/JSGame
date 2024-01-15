@@ -31,21 +31,44 @@ function isColliding(a:any, b:any): boolean { return( a.x < b.x + b.w && a.x + a
 function handleSolidBlock(plr: Player, rect: Rectangle): void {
     if(isColliding(plr, rect)){
         if(plr.l <= rect.x+rect.w && plr.ol > rect.x+rect.w){
-            plr.setLeft(rect.x+rect.w+0.01)
+            plr.setLeft(rect.x+rect.w+0.01);plr.xv=0;
         } else if (plr.r >= rect.x && plr.or < rect.x){
-            plr.setRight(rect.x - 0.01)
+            plr.setRight(rect.x - 0.01);plr.xv=0;
         } else if (plr.b >= rect.y && plr.ob < rect.y){
             plr.setBottom(rect.y - 0.01)
             plr.isOnFloor = true;
         } else if (plr.t <= rect.y+rect.h && plr.ot > rect.y+rect.h){
-            plr.setTop(rect.y+rect.h + 0.01)
-            plr.yv = 0
+            plr.setTop(rect.y+rect.h + 0.01);
+            plr.yv = 0;
         }
     }
 }
 
 player.x = 1920/4/scale
 player.y = 0
+
+let currentLevel: number = 0;
+function nextLevel(){
+    currentLevel++;
+}
+
+nextLevel()
+loadWorld(currentLevel)
+
+const draw = {
+    rect: (x:number, y:number, w:number, h:number)=>{
+        ctx.save();
+        ctx.fillRect(x, y, w, h);
+        ctx.restore();
+    },
+    circ: (x:number, y:number, r:number) => {
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, 360*Math.PI/180);
+        ctx.fill();
+        ctx.restore();
+    }
+}
 
 function main () {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -54,8 +77,10 @@ function main () {
 
     let screen_velocity = {x: 0, y: 0}
     screen_velocity.x = ((screen_offset.x - screen_position.x) / 4) * -2
+    screen_velocity.y = ((screen_offset.y - screen_position.y) / 4) * -2
+    
     screen_offset.x += screen_velocity.x;
-    screen_offset.y = (((screen_offset.y - screen_position.y ) / 4) * -2)
+    screen_offset.y += screen_velocity.y;
     {
         const gamespeed = 1
         player.isOnFloor = false
@@ -64,27 +89,62 @@ function main () {
         speed/=20
 
 
+
+
         world.forEach((object : any) => {
+            let x = object.x*scale+screen_offset.x*scale*(1920/2/scale)
+            let y = object.y*scale+screen_offset.y*scale*(1080*1.5/scale)
             switch (object.id) {
                 case 0:
                     handleSolidBlock(player, object)
-                    ctx.save()
                     ctx.fillStyle = 'rgb(0, 0, 0, .5)'
-                    let x = object.x*scale+screen_offset.x*scale*(1920/2/scale)
-                    let y = object.y*scale+screen_offset.y*scale*(1080/2/scale)
-                    ctx.fillRect(x, y, object.w*scale, object.h*scale)
-                    ctx.restore()
+                    draw.rect(x, y, object.w*scale, object.h*scale)
                     break;
                 case 1:
                     handleSolidBlock(player, object)
-                    ctx.save()
                     ctx.fillStyle = 'black'
-                    x = object.x*scale+screen_offset.x*scale*(1920/2/scale)
-                    y = object.y*scale+screen_offset.y*scale*(1080/2/scale)
-                    ctx.fillRect(x, y, object.w*scale, object.h*scale)
-                    ctx.restore()
+                    draw.rect(x, y, object.w*scale, object.h*scale)
                     break;
-            
+                case 2:
+                    if(isColliding(player, object)){
+                        player.gravity = 0.005
+                    } else {
+                        player.gravity = 0.05
+                    }
+                    ctx.fillStyle = 'rgb(0, 0, 0, .25)'
+                    draw.rect(x, y, object.w*scale, object.h*scale)
+                    break;
+                case 3:
+                    if(!player.spawned){
+                        player.spawned = true;
+                        player.x = object.x;
+                        player.y = object.y;
+                    }
+                    ctx.fillStyle = 'rgb(0, 255, 0, .75)'
+                    draw.circ(x+scale/2, y+scale/2, scale/2)
+                    break;
+                case 4:
+                    ctx.fillStyle = 'purple'
+                    draw.circ(x+scale/2, y+scale/2, scale/2)
+                    if(isColliding(player, object)){
+                        if(keys.isPressed("KeyW") && !object.isPressed){
+                            object.isPressed = true
+                            player.yv = -.5
+                        }
+                    }
+                    break;
+                case 5:
+                    ctx.fillStyle = 'purple'
+                    draw.rect(x,y,scale*object.w,scale*object.h);
+                    if(isColliding(player, object)){
+                        player.yv = -.5
+                    }
+                case 6:
+                    ctx.fillStyle = 'yellow'
+                    draw.rect(x,y,scale*object.w,scale*object.h);
+                    if(isColliding(player, object)){
+                        player.yv = -.75
+                    }
                 default:
                     break;
             }
@@ -109,5 +169,4 @@ function main () {
 
 }
 
-loadWorld(0)
 setInterval(main, 1000/60);

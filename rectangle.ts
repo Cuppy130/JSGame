@@ -1,5 +1,4 @@
 class Rectangle{
-    settings;
     x: number = 0;
     y: number = 0;
     h: number = 0;
@@ -13,7 +12,10 @@ class Rectangle{
     ob = this.b;
 
     constructor(setting : Object = {}){
-        this.settings = setting;
+        let v = $.extend({x: 0, y: 0, w: 1, h: 1},setting);
+        
+        this.x = v.x
+        this.y = v.y
     }
     
     setTop(v: number){this.y=v}
