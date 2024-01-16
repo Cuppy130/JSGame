@@ -24,7 +24,7 @@ var mouse = {
 };
 var keys = new InputHandler();
 var player = new Player(0);
-function c(v, m, x) { return Math.max(Math.min(v, x), m); }
+function clamp(v, m, x) { return Math.max(Math.min(v, x), m); }
 function isColliding(a, b) { return (a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y); }
 function handleSolidBlock(plr, rect) {
     if (isColliding(plr, rect)) {
@@ -74,8 +74,9 @@ function main() {
     screen_position.y = -Math.floor(player.y / (1080 / 2) * scale);
     var screen_velocity = { x: 0, y: 0 };
     screen_velocity.x = ((screen_offset.x - screen_position.x) / 4) * -2;
+    screen_velocity.y = ((screen_offset.y - screen_position.y) / 4) * -2;
     screen_offset.x += screen_velocity.x;
-    screen_offset.y = (((screen_offset.y - screen_position.y) / 4) * -2);
+    screen_offset.y += screen_velocity.y;
     {
         var gamespeed = 1;
         player.isOnFloor = false;
@@ -137,6 +138,7 @@ function main() {
                     if (isColliding(player, object)) {
                         player.yv = -.75;
                     }
+                    break;
                 default:
                     break;
             }
