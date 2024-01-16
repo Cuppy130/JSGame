@@ -75,15 +75,15 @@ class Player {
         this.ol = this.x;
         this.or = this.x + this.w;
 
-        this.x += this.xv * speed;
-        this.y += this.yv * speed;
+        this.x += this.xv;
+        this.y += this.yv;
 
         this.t = this.y;
         this.b = this.y + this.h;
         this.l = this.x;
         this.r = this.x + this.w;
 
-        this.xv /= 1.2
+        this.xv /= 1.1
 
     }
 }

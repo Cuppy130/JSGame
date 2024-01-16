@@ -25,8 +25,7 @@ const mouse = {
 
 const keys = new InputHandler()
 const player = new Player(0)
-
-function c ( v: number, m: number, x: number ) {return Math.max(Math.min(v, x), m)}
+function clamp ( v: number, m: number, x: number ) {return Math.max(Math.min(v, x), m)}
 function isColliding(a:any, b:any): boolean { return( a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y )}
 function handleSolidBlock(plr: Player, rect: Rectangle): void {
     if(isColliding(plr, rect)){
@@ -145,6 +144,7 @@ function main () {
                     if(isColliding(player, object)){
                         player.yv = -.75
                     }
+                    break
                 default:
                     break;
             }
