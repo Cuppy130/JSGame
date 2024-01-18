@@ -19,9 +19,9 @@ class Player {
     r = this.x+this.w;
     or = this.r;
     t = this.y;
-    ot = this.t
+    ot = this.t;
     b = this.y + this.h;
-    ob = this.b
+    ob = this.b;
 
     setTop(v : number) {
         this.y = this.y;

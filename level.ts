@@ -9,7 +9,7 @@ function parseWorld(a:number, b:string){
         case 3: return {'y': parseFloat(b)}
         case 4: return {'w': parseFloat(b)}
         case 5: return {'h': parseFloat(b)}
-        case 6: return {'r': parseFloat(b)} // rotation
+        case 6: return {'gid': parseFloat(b)} // rotation
     }
 }
 

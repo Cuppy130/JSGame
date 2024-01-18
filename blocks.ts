@@ -1,4 +1,4 @@
-function blockCollisionsAndDrawing(): void {
+function blockCollisionsAndDrawing() {
     world.forEach((object : Rectangle) => {
         let x = object.x*scale+screen_offset.x*scale*(1920/2/scale);
         let y = object.y*scale+screen_offset.y*scale*(1080/2/scale);
@@ -49,13 +49,13 @@ function blockCollisionsAndDrawing(): void {
                 break;
             case 5:
                 ctx.fillStyle = 'purple'
-                draw.rect(x,y,scale*w,scale*object.h);
+                draw.rect(x,y,w,h);
                 if(isColliding(player, object)){
                     player.yv = -.5
                 }
             case 6:
                 ctx.fillStyle = 'yellow';
-                draw.rect(x,y,scale*w,scale*object.h);
+                draw.rect(x,y,w,h);
                 if(isColliding(player, object)){
                     player.yv = -.75;
                 }
