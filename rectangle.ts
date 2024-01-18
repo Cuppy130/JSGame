@@ -6,16 +6,22 @@ class Rectangle{
     xv: number = 0;
     yv: number = 0;
 
-    t = this.y;
-    ot = this.t;
-    b = this.y + this.h;
-    ob = this.b;
+    t: number = this.y;
+    ot: number = this.t;
+    b: number = this.y+this.h;
+    ob: number = this.b+this.h;
+    l: number = this.x;
+    ol: number = this.x;
+    r: number = this.x+this.w;
+    or: number = this.x+this.w;
 
-    constructor(setting : Object = {}){
-        let v = $.extend({x: 0, y: 0, w: 1, h: 1},setting);
+    constructor(setting : any = {}){
+        let v = $.extend({x: 0, y: 0, w: 1, h: 1, xv: 0, yv: 0},setting);
         
-        this.x = v.x
-        this.y = v.y
+        this.x = v.x;
+        this.y = v.y;
+        this.w = v.w;
+        this.h = v.h;
     }
     
     setTop(v: number){this.y=v}

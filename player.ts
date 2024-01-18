@@ -57,7 +57,7 @@ class Player {
     draw(){
         ctx.save();
         ctx.fillStyle = "lime"
-        ctx.translate(this.x*scale+screen_offset.x*scale*(1920/2/scale), this.y*scale+screen_offset.y*scale*(1080*1.5/scale));
+        ctx.translate(this.x*scale+screen_offset.x*scale*(1920/2/scale), this.y*scale+screen_offset.y*scale*(1080/2/scale));
         if(!this.isOnFloor){
             ctx.rotate(this.rotation*Math.PI/180);
         }
@@ -83,7 +83,7 @@ class Player {
         this.l = this.x;
         this.r = this.x + this.w;
 
-        this.xv /= 1.1
+        this.xv /= 1.2
 
     }
 }

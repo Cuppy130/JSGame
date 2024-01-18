@@ -1,1 +1,7 @@
-1,id,2,x,3,y,4,width,5,height,6,rotation
+[
+    {id, x, y, w, h}
+    {
+        jump pad: 5,
+        spawnpoint: 3
+    }
+]
