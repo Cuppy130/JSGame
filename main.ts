@@ -64,13 +64,15 @@ function main () {
     
     screen_offset.x += screen_velocity.x;
     screen_offset.y += screen_velocity.y;
-    blockCollisionsAndDrawing();
     {
         const gamespeed = 1
         player.isOnFloor = false
         player.update(gamespeed)
         let speed = .5 + 1/3
         speed/=20
+
+
+        blockCollisionsAndDrawing();
         
         if(keys.isPressed("KeyA")){
             player.xv-=speed * gamespeed;
