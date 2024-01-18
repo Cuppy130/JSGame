@@ -1,17 +1,19 @@
 function blockCollisionsAndDrawing(): void {
-    world.forEach((object : any) => {
-        let x = object.x*scale+screen_offset.x*scale*(1920/2/scale)
-        let y = object.y*scale+screen_offset.y*scale*(1080/2/scale)
+    world.forEach((object : Rectangle) => {
+        let x = object.x*scale+screen_offset.x*scale*(1920/2/scale);
+        let y = object.y*scale+screen_offset.y*scale*(1080/2/scale);
+        let w = object.w*scale;
+        let h = object.h*scale;
         switch (object.id) {
             case 0:
                 handleSolidBlock(player, object)
                 ctx.fillStyle = 'rgb(0, 0, 0, .5)'
-                draw.rect(x, y, object.w*scale, object.h*scale)
+                draw.rect(x, y, w, h)
                 break;
             case 1:
                 handleSolidBlock(player, object)
                 ctx.fillStyle = 'black'
-                draw.rect(x, y, object.w*scale, object.h*scale)
+                draw.rect(x, y, w, h)
                 break;
             case 2:
                 if(isColliding(player, object)){
@@ -20,7 +22,7 @@ function blockCollisionsAndDrawing(): void {
                     player.gravity = 0.05
                 }
                 ctx.fillStyle = 'rgb(0, 0, 0, .25)'
-                draw.rect(x, y, object.w*scale, object.h*scale)
+                draw.rect(x, y, w, h)
                 break;
             case 3:
                 if(!player.spawned){
@@ -47,13 +49,13 @@ function blockCollisionsAndDrawing(): void {
                 break;
             case 5:
                 ctx.fillStyle = 'purple'
-                draw.rect(x,y,scale*object.w,scale*object.h);
+                draw.rect(x,y,scale*w,scale*object.h);
                 if(isColliding(player, object)){
                     player.yv = -.5
                 }
             case 6:
                 ctx.fillStyle = 'yellow';
-                draw.rect(x,y,scale*object.w,scale*object.h);
+                draw.rect(x,y,scale*w,scale*object.h);
                 if(isColliding(player, object)){
                     player.yv = -.75;
                 }

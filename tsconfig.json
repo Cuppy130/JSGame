@@ -8,6 +8,7 @@
       "strict": true
     },
     "files": [
+      "collision.ts",
       "blocks.ts",
       "rectangle.ts",
       "level.ts",

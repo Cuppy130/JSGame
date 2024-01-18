@@ -1,4 +1,6 @@
 class Rectangle{
+    id: number = 0;
+
     x: number = 0;
     y: number = 0;
     h: number = 0;
@@ -17,7 +19,7 @@ class Rectangle{
 
     constructor(setting : any = {}){
         let v = $.extend({x: 0, y: 0, w: 1, h: 1, xv: 0, yv: 0},setting);
-        
+        this.id = v.id;
         this.x = v.x;
         this.y = v.y;
         this.w = v.w;
