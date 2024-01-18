@@ -8,12 +8,12 @@
       "strict": true
     },
     "files": [
-      "collision.ts",
-      "blocks.ts",
-      "rectangle.ts",
-      "level.ts",
-      "keyboard.ts",
-      "player.ts",
-      "main.ts"
+      "typescript/collision.ts",
+      "typescript/blocks.ts",
+      "typescript/rectangle.ts",
+      "typescript/level.ts",
+      "typescript/keyboard.ts",
+      "typescript/player.ts",
+      "typescript/main.ts"
     ]
   }
